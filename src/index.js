@@ -11,7 +11,7 @@ const Pagseguro = (auth) => {
   const session = require('./session')({ auth, ...deps });
 
   return {
-    sessionId: async () => await session.start(),
+    sessionId: () => session.start(),
     ordersByApprovalCode: () => orders.byApprovalCode()
   };
 };
