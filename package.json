@@ -1,0 +1,29 @@
+{
+  "name": "pseg-recurrent",
+  "version": "0.0.1",
+  "description": "lib to help an implement pagseguro recurring payment method",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/g1llz/pseg-recurrent.git"
+  },
+  "keywords": [
+    "pagseguro",
+    "signature",
+    "recurrent",
+    "payment"
+  ],
+  "author": "Gilles Lima",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/g1llz/pseg-recurrent/issues"
+  },
+  "homepage": "https://github.com/g1llz/pseg-recurrent#readme",
+  "devDependencies": {
+    "axios": "^0.18.0",
+    "xml-js": "^1.6.11"
+  }
+}
