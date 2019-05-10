@@ -1,11 +1,13 @@
 const orders = deps => {
-  const { axios, convert, xml2Opt } = deps;
+  const { axios, credentials, convert, xml2Opt } = deps;
+  const options = {
+    headers: { 'Content-Type': 'application/json;charset=ISO-8859-1', 'Accept': 'application/vnd.pagseguro.com.br.v3+xml;charset=ISO-8859-1' },
+    params: { email: credentials.email, token: credentials.token },
+  };
   return {
     byApprovalCode: code => {
-      const options = {
-        url = `https://ws.sandbox.pagseguro.uol.com.br/pre-approvals/${code}/payment-orders`;
-        method = 'GET';
-      };
+      options.url = `https://ws.sandbox.pagseguro.uol.com.br/pre-approvals/${code}/payment-orders`;
+      options.method = 'GET';
 
       return new Promise( async (resolve, reject) => {
         try {
@@ -20,7 +22,7 @@ const orders = deps => {
           });
         }
       });
-      
+
     }
   }
 }
