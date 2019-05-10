@@ -1,8 +1,8 @@
 const orders = deps => {
-  const { axios, credentials, convert, xml2Opt } = deps;
+  const { axios, auth, convert, xml2Opt } = deps;
   const options = {
     headers: { 'Content-Type': 'application/json;charset=ISO-8859-1', 'Accept': 'application/vnd.pagseguro.com.br.v3+xml;charset=ISO-8859-1' },
-    params: { email: credentials.email, token: credentials.token },
+    params: { email: auth.email, token: auth.token },
   };
   return {
     byApprovalCode: code => {
