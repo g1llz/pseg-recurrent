@@ -2,6 +2,7 @@ const axios = require('axios');
 const convert = require('xml-js');
 const xml2Opt = require('./helpers/text-from-xml');
 
+/* main const */
 const Pagseguro = (credentials) => {
   const deps = { axios, credentials, convert, xml2Opt };
   const orders = require('./order')(deps);
