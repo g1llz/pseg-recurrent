@@ -15,14 +15,14 @@ const auth = {
 ### CHECKLIST<br/>
 - [x] GET session ID
 ```js
-const xyz = Pagseguro(auth).sessionId()
-  .then(data => console.log(data.code))
+const id = Pagseguro(auth).sessionId()
+  .then(data => data.code)
   .catch(err => console.log(err));
 ```
 - [x] GET orders by approval code
 ```js
-const xyz = Pagseguro(auth).ordersByApprovalCode(code)
-  .then(data => console.log(data))
+const orders = Pagseguro(auth).ordersByApprovalCode(code)
+  .then(data => data)
   .catch(err => console.log(err));
 ```
 - [ ] ...
