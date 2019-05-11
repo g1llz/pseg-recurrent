@@ -14,7 +14,6 @@ const orders = deps => {
         try {
           const response = await axios(options);
           const data = convert.xml2js(response.data, xml2Opt);
-          console.log(data);
           resolve(data);
         } catch (error) {
           if (error.response.status === 400) {
