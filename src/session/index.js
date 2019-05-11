@@ -14,16 +14,16 @@ const session = deps => {
         try {
           const response = await axios(options);
           const data = convert.xml2js(response.data, xml2Opt);
-          console.log(data);
           resolve({
             code: data.session.id
           });
         } catch (error) {
-          /* 401 - unauthorized 
-             404 - not found */
+          /* implement error handler  */
+          const status = error.response.status;
+          const reason = error.response.data;
           reject({
-            status: error.response.status,
-            error: error.response.data
+            status: status,
+            error: reason
           });
         }
       });
