@@ -21,7 +21,19 @@ const id = Pagseguro(auth).sessionId()
 ```
 - [x] GET orders by approval code
 ```js
-const orders = Pagseguro(auth).ordersByApprovalCode(code)
+const orders = Pagseguro(auth).ordersByApprovalCode('ABCDEF123000ZXXZ9870WW')
+  .then(data => data)
+  .catch(err => console.log(err));
+```
+- [x] SET discount on next order
+```js
+const discount = { 
+  code: 'ABCDEF123000ZXXZ9870WW',
+  type: 'DISCOUNT_PERCENT',
+  value: '10.00' 
+};
+
+const setDiscount = Pagseguro(auth).setDiscountOnNextOrder(discount)
   .then(data => data)
   .catch(err => console.log(err));
 ```
