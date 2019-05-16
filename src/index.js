@@ -12,7 +12,8 @@ const Pagseguro = (auth) => {
 
   return {
     sessionId: () => session.start(),
-    ordersByApprovalCode: (code) => orders.byApprovalCode(code)
+    ordersByApprovalCode: (code) => orders.byApprovalCode(code),
+    setDiscountOnNextOrder: (discount) => orders.discountOnNextOrder(discount)
   };
 };
 
