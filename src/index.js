@@ -1,9 +1,4 @@
-const axios = require('axios');
-const convert = require('xml-js');
-const xml2Opt = require('./helpers/text-from-xml');
-const base = require('./helpers/base');
-
-const deps = { axios, convert, xml2Opt, base };
+const deps = require('./dependences');
 
 /* main const */
 const Pagseguro = (auth) => {
@@ -12,8 +7,8 @@ const Pagseguro = (auth) => {
 
   return {
     sessionId: () => session.start(),
-    ordersByApprovalCode: (code) => orders.byApprovalCode(code),
-    setDiscountOnNextOrder: (discount) => orders.discountOnNextOrder(discount)
+    ordersByApprovalCode: code => orders.byApprovalCode(code),
+    setDiscountOnNextOrder: discount => orders.discountOnNextOrder(discount)
   };
 };
 
