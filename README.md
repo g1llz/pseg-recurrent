@@ -3,25 +3,25 @@
 
 > Work in **progress**
 
-### Credentials example
+### Set credentials and boom!
 ```js
-const auth = {
+const pagseguro = Pagseguro({
   email: "bruce@wayne.io",
   token: "ABXXZ12BATMAN78XC0911OOPH4CC",
   sandbox: true
-};
+});
 ```
 
 ### CHECKLIST<br/>
 - [x] GET session ID
 ```js
-const id = Pagseguro(auth).sessionId()
+const id = pagseguro.sessionId()
   .then(data => data.code)
   .catch(err => console.log(err));
 ```
 - [x] GET orders by approval code
 ```js
-const orders = Pagseguro(auth).ordersByApprovalCode("ABCDEF123000ZXXZ9870WW")
+const orders = pagseguro.ordersByApprovalCode("ABCDEF123000ZXXZ9870WW")
   .then(data => data)
   .catch(err => console.log(err));
 ```
@@ -33,7 +33,7 @@ const discount = {
   value: "10.00" 
 };
 
-const setDiscount = Pagseguro(auth).setDiscountOnNextOrder(discount)
+const setDiscount = pagseguro.setDiscountOnNextOrder(discount)
   .then(data => data)
   .catch(err => console.log(err));
 ```
