@@ -13,19 +13,19 @@ const pagseguro = Pagseguro({
 ```
 
 ### CHECKLIST<br/>
-- [x] GET session ID
+- [x] Get session ID
 ```js
 const id = pagseguro.sessionId()
   .then(data => data.code)
   .catch(err => console.log(err));
 ```
-- [x] GET orders by approval code
+- [x] List orders by approval code
 ```js
 const orders = pagseguro.ordersByApprovalCode("ABCDEF123000ZXXZ9870WW")
   .then(data => data)
   .catch(err => console.log(err));
 ```
-- [x] SET discount on next order
+- [x] Set discount on next order
 ```js
 const discount = { 
   code: "ABCDEF123000ZXXZ9870WW", /* subscription code; */
@@ -38,7 +38,7 @@ const setDiscount = pagseguro.setDiscountOnNextOrder(discount)
   .catch(err => console.log(err));
 ```
 
-- [x] LIST subscriptions by date interval
+- [x] List subscriptions by date interval
 ```js
 const search = { 
   initialDate: "2019-04-01T00:00:00.0Z",
