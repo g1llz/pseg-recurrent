@@ -28,7 +28,7 @@ const orders = pagseguro.ordersByApprovalCode("ABCDEF123000ZXXZ9870WW")
 - [x] SET discount on next order
 ```js
 const discount = { 
-  code: "ABCDEF123000ZXXZ9870WW",
+  code: "ABCDEF123000ZXXZ9870WW", /* subscription code; */
   type: "DISCOUNT_PERCENT",
   value: "10.00" 
 };
