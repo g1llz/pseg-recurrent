@@ -1,5 +1,5 @@
-const xml2Opt = require('./helpers/text-from-xml');
-const base = require('./helpers/base');
+const xml2Opt = require('./text-from-xml');
+const base = require('./base');
 
 module.exports = {
   xml2Opt,
