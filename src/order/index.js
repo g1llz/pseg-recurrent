@@ -8,9 +8,10 @@ const orders = deps => {
   return {
     byApprovalCode: code => {
       options.url = `${baseURL}/pre-approvals/${code}/payment-orders`;
+      options.method = 'GET';
       return new Promise(async (resolve, reject) => {
         try {
-          const response = await axios.get(options);
+          const response = await axios(options);
           const data = convert.xml2js(response.data, xml2Opt);
           resolve(data);
         } catch (error) {
@@ -32,9 +33,10 @@ const orders = deps => {
       const { code, discountType, discountValue } = discount;
       options.url = `${baseURL}/pre-approvals/${code}/discount`;
       options.data = { type: discountType, value: discountValue };
+      options.method = 'PUT';
       return new Promise( async (resolve, reject) => {
         try {
-          const response = await axios.put(options);
+          const response = await axios(options);
           if (response.status === 200)
             resolve({});
         } catch (error) {
