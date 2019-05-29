@@ -37,6 +37,20 @@ const setDiscount = pagseguro.setDiscountOnNextOrder(discount)
   .then(data => data)
   .catch(err => console.log(err));
 ```
+
+- [x] LIST subscriptions by date interval
+```js
+const search = { 
+  initialDate: "2019-04-01T00:00:00.0Z",
+  finalDate: "2019-04-19T00:00:00.0Z",
+  status: "ACTIVE", /* OPTIONAL - subscription status; */
+  preApprovalRequest: "ABCDEF123000ZXXZ9870WW" /* OPTIONAL - code of plan; */
+};
+
+const subsList = pagseguro.subscriptionByDateInterval(search)
+  .then(data => data)
+  .catch(err => console.log(err));
+```
 - [ ] ...
 
 ### LICENSE
