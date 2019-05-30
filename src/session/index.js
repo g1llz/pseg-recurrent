@@ -9,7 +9,6 @@ const session = deps => {
     start: () => {
       options.url = `${baseURL}/v2/sessions`;
       options.method = 'POST';
-
       return new Promise( async (resolve, reject) => {
         try {
           const response = await axios(options);

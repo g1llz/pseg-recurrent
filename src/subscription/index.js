@@ -2,8 +2,14 @@ const subscription = deps => {
   const { axios, auth, convert, xml2Opt, base } = deps;
   const baseURL = auth.sandbox ? base.sandbox : base.production;
   const options = {
-    headers: { 'Content-Type': 'application/json;charset=ISO-8859-1', 'Accept': 'application/vnd.pagseguro.com.br.v3+xml;charset=ISO-8859-1' },
-    params: { email: auth.email, token: auth.token },
+    headers: {
+      'Content-Type': 'application/json;charset=ISO-8859-1',
+      'Accept': 'application/vnd.pagseguro.com.br.v3+xml;charset=ISO-8859-1'
+    },
+    params: {
+      email: auth.email,
+      token: auth.token
+    },
   };
   return {
     byDateInterval: search => {
