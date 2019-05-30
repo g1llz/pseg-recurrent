@@ -58,7 +58,7 @@ const detail = pagseguro.notificationDetail('ABCDEF123000ZXXZ9870WW', 'transacti
   .then(data => data)
   .catch(err => console.log(err));
 
-/* response detail */
+/* data detail */
 {
   data: {
     transaction: {
