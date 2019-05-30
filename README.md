@@ -51,6 +51,41 @@ const subsList = pagseguro.subscriptionByDateInterval(search)
   .then(data => data)
   .catch(err => console.log(err));
 ```
+
+- [x] Detail of notification sent by Pagseguro
+```js
+const detail = pagseguro.notificationDetail('ABCDEF123000ZXXZ9870WW', 'transaction')
+  .then(data => data)
+  .catch(err => console.log(err));
+
+/* response detail */
+{
+  data: {
+    transaction: {
+      date: '2019-04-01T00:01:01.000-01:00',
+      code: '14D00F18-4355-4BAC-BD01-7B42F3XX754C',
+      reference: 'dca12922d82d344299a9',
+      type: '11',
+      status: '3',
+      lastEventDate: '2019-04-01T00:01:01.000-01:00',
+      paymentMethod: [Object],
+      grossAmount: '29.90',
+      discountAmount: '0.00',
+      creditorFees: [Object],
+      netAmount: '28.01',
+      escrowEndDate: '2019-06-13T10:16:41.000-03:00',
+      installmentCount: '1',
+      itemCount: '1',
+      items: [Object],
+      sender: [Object],
+      shipping: [Object],
+      gatewaySystem: [Object],
+      primaryReceiver: [Object]
+    }
+  }
+}
+
+```
 - [ ] ...
 
 ### LICENSE
