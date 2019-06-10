@@ -7,7 +7,7 @@ const removeJsonTextAttribute = (value, parentElement) => {
   } catch (err) {
     console.log(err);
   }
-}
+};
 
 const xml2Opt = {
   compact: true,
@@ -19,6 +19,6 @@ const xml2Opt = {
   ignoreCdata: true,
   ignoreDoctype: true,
   textFn: removeJsonTextAttribute
-}
+};
 
 module.exports = xml2Opt;
