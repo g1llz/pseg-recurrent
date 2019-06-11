@@ -9,18 +9,24 @@ const Pagseguro = function(auth) {
   this.config = { auth, ...deps };
 };
 
-Pagseguro.prototype.sessionId = () => session.start()(this.config);
+Pagseguro.prototype.sessionId = function() { 
+  return session(this.config).start();
+};
 
-Pagseguro.prototype.ordersByApprovalCode = (code) => 
-  orders.byApprovalCode(code)(this.config); 
+Pagseguro.prototype.ordersByApprovalCode = function(code) {
+  return orders(this.config).byApprovalCode(code); 
+};
 
-Pagseguro.prototype.setDiscountOnNextOrder = (discount) =>
-  orders.discountOnNextOrder(discount)(this.config);
+Pagseguro.prototype.setDiscountOnNextOrder = function(discount) {
+  return orders(this.config).discountOnNextOrder(discount);
+};
 
-Pagseguro.prototype.subscriptionByDateInterval = (search) =>
-  subscription.byDateInterval(search)(this.config);
+Pagseguro.prototype.subscriptionByDateInterval = function(search) {
+  return subscription(this.config).byDateInterval(search);
+};
 
-Pagseguro.prototype.notificationDetail = (code, type) =>
-  notification.approvalOrTransaction(code, type)(this.config);
+Pagseguro.prototype.notificationDetail = function(code, type) {
+  return notification(this.config).approvalOrTransaction(code, type);
+};
 
 module.exports = Pagseguro;
