@@ -21,8 +21,12 @@ Pagseguro.prototype.setDiscountOnNextOrder = function(discount) {
   return orders(this.config).discountOnNextOrder(discount);
 };
 
-Pagseguro.prototype.subscriptionByDateInterval = function(search) {
-  return subscription(this.config).byDateInterval(search);
+Pagseguro.prototype.listSubsByDateInterval = function(search) {
+  return subscription(this.config).listByDateInterval(search);
+};
+
+Pagseguro.prototype.subDetailByApprovalCode = function(code) {
+  return subscription(this.config).detailByApprovalCode(code);
 };
 
 Pagseguro.prototype.notificationDetail = function(code, type) {
