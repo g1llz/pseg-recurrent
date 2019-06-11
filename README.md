@@ -53,6 +53,30 @@ const search = {
 pagseguro.subscriptionByDateInterval(search)
   .then(data => data)
   .catch(err => console.log(err));
+
+/* response detail */
+{
+  preApprovalSearchResult: {
+    resultsInThisPage: '1',
+    currentPage: '1',
+    totalPages: '1',
+    date: '2019-05-30T13:54:27-03:00',
+    preApprovals: {
+      preApproval: [
+        {
+            name: 'dc1',
+            code: 'B0EB1247D5D5685774CBCF93A665028C',
+            date: '2019-05-30T10:14:31-03:00',
+            tracker: '035893',
+            status: 'ACTIVE',
+            reference: 'dca12922d82d344299a9', /* YOU define this ref at the time you sign up */
+            lastEventDate: '2019-05-30T10:14:32-03:00',
+            charge: 'AUTO'
+        }
+      ]
+    }
+  }
+}
 ```
 
 - [x] Detail of notification sent by Pagseguro
@@ -61,7 +85,7 @@ pagseguro.notificationDetail('ABCDEF123000ZXXZ9870WW', 'transaction')
   .then(data => data)
   .catch(err => console.log(err));
 
-/* data detail */
+/* response detail */
 {
   data: {
     transaction: {
