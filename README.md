@@ -1,7 +1,7 @@
 ### PagSeguro Recurring Payment (pseg-recurrent)<br/>
 :brazil: Pagamento recorrente [PagSeguro](https://dev.pagseguro.uol.com.br/docs/pagamento-recorrente)
 
-> **Work in progress** :metal:<br/>
+> **Work in progress** :metal: <br/>
 > **ALL METHODS RETURN A PROMISE**
 
 ### Set credentials and boom!
@@ -17,18 +17,30 @@ const pagseguro = new Pagseguro({
 
 ### CHECKLIST<br/>
 - [x] Get session ID
+
+Method: `sessionId()`
+
+Example:.
 ```js
 pagseguro.sessionId()
   .then(data => data.code)
   .catch(err => console.log(err));
 ```
 - [x] List orders by approval code
+
+Method: `ordersByApprovalCode(code)`
+
+Example:.
 ```js
 pagseguro.ordersByApprovalCode("ABCDEF123000ZXXZ9870WW")
   .then(data => data)
   .catch(err => console.log(err));
 ```
 - [x] Set discount on next order
+
+Method: `setDiscountOnNextOrder(discount)`
+
+Example:.
 ```js
 const discount = { 
   code: "ABCDEF123000ZXXZ9870WW", /* subscription code; */
@@ -42,6 +54,10 @@ pagseguro.setDiscountOnNextOrder(discount)
 ```
 
 - [x] List subscriptions by date interval
+
+Method: `subscriptionByDateInterval(search)`
+
+Example:.
 ```js
 const search = { 
   initialDate: "2019-04-01T00:00:00.0Z",
@@ -64,14 +80,14 @@ pagseguro.subscriptionByDateInterval(search)
     preApprovals: {
       preApproval: [
         {
-            name: 'dc1',
-            code: 'B0EB1247D5D5685774CBCF93A665028C',
-            date: '2019-05-30T10:14:31-03:00',
-            tracker: '035893',
-            status: 'ACTIVE',
-            reference: 'dca12922d82d344299a9', /* YOU define this ref at the time you sign up */
-            lastEventDate: '2019-05-30T10:14:32-03:00',
-            charge: 'AUTO'
+          name: 'dc1',
+          code: 'B0EB1247D5D5685774CBCF93A665028C',
+          date: '2019-05-30T10:14:31-03:00',
+          tracker: '035893',
+          status: 'ACTIVE',
+          reference: 'dca12922d82d344299a9', /* YOU define this ref at the time you sign up */
+          lastEventDate: '2019-05-30T10:14:32-03:00',
+          charge: 'AUTO'
         }
       ]
     }
@@ -80,6 +96,10 @@ pagseguro.subscriptionByDateInterval(search)
 ```
 
 - [x] Detail of notification sent by Pagseguro
+
+Method: `notificationDetail(code, type)`
+
+Example:.
 ```js
 pagseguro.notificationDetail('ABCDEF123000ZXXZ9870WW', 'transaction')
   .then(data => data)
@@ -111,7 +131,6 @@ pagseguro.notificationDetail('ABCDEF123000ZXXZ9870WW', 'transaction')
     }
   }
 }
-
 ```
 - [ ] ...
 
