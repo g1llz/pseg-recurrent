@@ -1,9 +1,8 @@
 ### PagSeguro Recurring Payment (pseg-recurrent)<br/>
 :brazil: Pagamento recorrente [PagSeguro](https://dev.pagseguro.uol.com.br/docs/pagamento-recorrente)
 
-> Work in **progress**
-
-:warning: **ALL METHODS RETURN A PROMISE.**
+> **Work in progress** :metal:<br/>
+> **ALL METHODS RETURN A PROMISE**
 
 ### Set credentials and boom!
 ```js
@@ -19,13 +18,13 @@ const pagseguro = new Pagseguro({
 ### CHECKLIST<br/>
 - [x] Get session ID
 ```js
-const id = pagseguro.sessionId()
+pagseguro.sessionId()
   .then(data => data.code)
   .catch(err => console.log(err));
 ```
 - [x] List orders by approval code
 ```js
-const orders = pagseguro.ordersByApprovalCode("ABCDEF123000ZXXZ9870WW")
+pagseguro.ordersByApprovalCode("ABCDEF123000ZXXZ9870WW")
   .then(data => data)
   .catch(err => console.log(err));
 ```
@@ -37,7 +36,7 @@ const discount = {
   value: "10.00" 
 };
 
-const setDiscount = pagseguro.setDiscountOnNextOrder(discount)
+pagseguro.setDiscountOnNextOrder(discount)
   .then(data => data)
   .catch(err => console.log(err));
 ```
@@ -51,14 +50,14 @@ const search = {
   preApprovalRequest: "ABCDEF123000ZXXZ9870WW" /* OPTIONAL - code of plan; */
 };
 
-const subsList = pagseguro.subscriptionByDateInterval(search)
+pagseguro.subscriptionByDateInterval(search)
   .then(data => data)
   .catch(err => console.log(err));
 ```
 
 - [x] Detail of notification sent by Pagseguro
 ```js
-const detail = pagseguro.notificationDetail('ABCDEF123000ZXXZ9870WW', 'transaction')
+pagseguro.notificationDetail('ABCDEF123000ZXXZ9870WW', 'transaction')
   .then(data => data)
   .catch(err => console.log(err));
 
