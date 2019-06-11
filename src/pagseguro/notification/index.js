@@ -30,8 +30,7 @@ const notification = deps => {
             error: reason
           });
         }
-      });
-      
+      });  
     }
   };
 };
