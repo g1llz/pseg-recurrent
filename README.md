@@ -3,9 +3,13 @@
 
 > Work in **progress**
 
+:warning: **ALL METHODS RETURN A PROMISE.**
+
 ### Set credentials and boom!
 ```js
-const pagseguro = Pagseguro({
+const Pagseguro = require('pseg-recurrent');
+
+const pagseguro = new Pagseguro({
   email: "bruce@wayne.io",
   token: "ABXXZ12BATMAN78XC0911OOPH4CC",
   sandbox: true
